@@ -44,7 +44,7 @@ We are analyzing the Ames Housing dataset which contains detailed information ab
 ## Data Loading and Model Building
 ```{python}
 #| label: load-and-model-python
-#| echo: true
+#| echo: false
 
 import pandas as pd
 import numpy as np
@@ -82,7 +82,7 @@ print(f"Model built with {tree_model.get_n_leaves()} terminal nodes")
 
 ```{python}
 #| label: visualize-tree-python
-#| echo: true
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
@@ -156,7 +156,7 @@ Now let's repeat the analysis with zipCode properly encoded as categorical varia
 
 ```{python}
 #| label: categorical-python
-#| echo: true
+#| echo: false
 #| include: false
 # One-hot encode zipCode
 import pandas as pd
@@ -196,7 +196,7 @@ zipcode_percent = (zipcode_importance / total_importance * 100).round(2)
 
 ```{python}
 #| label: visualize-tree-cat-python
-#| echo: true
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
@@ -298,7 +298,9 @@ From the official scikit-learn decision tree documentation: “DecisionTreeClass
 - Scikit-learn’s documentation explicitly acknowledges this weakness.
 
 3. **Are There Any Suggestions for Implementing Decision Trees in Python With Prioper Categorical Handling?** Please poke around the Internet (AI is not as helpful with new libraries) for suggestions on how to implement decision trees in Python with better (i.e. not one-hot encoding) categorical handling.  Please provide a link to the source and a quote from the source.  There is not right answer here, but please provide a thoughtful answer, I am curious to see what you find.
-answer: 
+
+
+**Answer:** 
 **🌳 Decision Trees, Feature Importance, and the Encoding Story**
 Decision trees are often celebrated for their interpretability. They provide a clear ranking of which variables drive predictions, making them attractive for business users who want transparency. But when I explored how feature importance is calculated, I discovered a subtle trap: the way categorical variables are encoded can dramatically distort the story the tree tells.
 
