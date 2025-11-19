@@ -148,22 +148,6 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
-\definecolor{quarto-callout-color}{HTML}{909090}
-\definecolor{quarto-callout-note-color}{HTML}{0758E5}
-\definecolor{quarto-callout-important-color}{HTML}{CC1914}
-\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
-\definecolor{quarto-callout-tip-color}{HTML}{00A047}
-\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
-\definecolor{quarto-callout-color-frame}{HTML}{acacac}
-\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
-\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
-\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
-\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
-\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
@@ -243,28 +227,8 @@ encoding. You'll answer two key discussion questions by adding narrative
 to a pre-built analysis and posting those answers to your GitHub Pages
 site as a rendered HTML document.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{⚠️ AI Partnership Required}, leftrule=.75mm, breakable, titlerule=0mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, rightrule=.15mm, coltitle=black, colframe=quarto-callout-warning-color-frame, arc=.35mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, bottomtitle=1mm, toprule=.15mm]
-
-This challenge pushes boundaries intentionally. You'll tackle problems
-that normally require weeks of study, but with Cursor AI as your partner
-(and your brain keeping it honest), you can accomplish more than you
-thought possible.
-
-\textbf{The new reality:} The four stages of competence are Ignorance →
-Awareness → Learning → Mastery. AI lets us produce Mastery-level work
-while operating primarily in the Awareness stage. I focus on awareness
-training, you leverage AI for execution, and together we create outputs
-that used to require years of dedicated study.
-
-\end{tcolorbox}
-
 \subsection{The Decision Tree Problem
 🎯}\label{the-decision-tree-problem}
-
-\begin{quote}
-``The most important thing in communication is hearing what isn't
-said.'' - Peter Drucker
-\end{quote}
 
 \textbf{The Core Problem:} Decision trees are often praised for their
 interpretability and ability to handle both numerical and categorical
@@ -277,7 +241,8 @@ impurity (or improving prediction accuracy) across all splits in the
 tree. It's a key metric for understanding which variables matter most
 for your predictions.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{🎯 The Key Insight: Encoding Matters for Interpretability}, leftrule=.75mm, breakable, titlerule=0mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, rightrule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, arc=.35mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, bottomtitle=1mm, toprule=.15mm]
+\subsection{🎯 The Key Insight: Encoding Matters for
+Interpretability}\label{the-key-insight-encoding-matters-for-interpretability}
 
 \textbf{The problem:} When we encode categorical variables as numerical
 values (like 1, 2, 3, 4\ldots), decision trees treat them as if they
@@ -295,8 +260,6 @@ models can give us completely wrong insights about feature importance if
 we don't properly encode our variables. A categorical variable that
 should be among the most important might appear irrelevant, while a
 numerical variable might appear artificially important.
-
-\end{tcolorbox}
 
 Let's assume we want to predict house prices and understand which
 features matter most. The key question is: \textbf{How does encoding
@@ -328,8 +291,6 @@ prediction (i.e.~zip code 99999 is not the priceiest zip code).
 
 \subsection{Data Loading and Model
 Building}\label{data-loading-and-model-building}
-
-\subsubsection{Python}\label{python}
 
 \phantomsection\label{load-and-model-python}
 \begin{Shaded}
@@ -373,8 +334,6 @@ Model built with 8 terminal nodes
 
 \subsection{Tree Visualization}\label{tree-visualization}
 
-\subsubsection{Python}\label{python-1}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Visualize tree}
@@ -393,19 +352,15 @@ Model built with 8 terminal nodes
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/visualize-tree-python-output-1.pdf}}
 
-:::
-
 \subsection{Feature Importance
 Analysis}\label{feature-importance-analysis}
-
-\subsubsection{Python}\label{python-2}
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/importance-plot-python-output-1.pdf}}
 
 \subsection{Critical Analysis: The Encoding
 Problem}\label{critical-analysis-the-encoding-problem}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{⚠️ The Problem Revealed}, leftrule=.75mm, breakable, titlerule=0mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, rightrule=.15mm, coltitle=black, colframe=quarto-callout-warning-color-frame, arc=.35mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, bottomtitle=1mm, toprule=.15mm]
+\subsection{⚠️ The Problem Revealed}\label{the-problem-revealed}
 
 \textbf{What to note:} Our decision tree treated \texttt{zipCode} as a
 numerical variable. This leads to zip code being unimportant. Not
@@ -435,8 +390,6 @@ representing discrete geographic areas. The numerical values have no
 inherent order or magnitude relationship to house prices. These must be
 modelled as categorical variables.
 
-\end{tcolorbox}
-
 \subsection{Proper Categorical Encoding: The
 Solution}\label{proper-categorical-encoding-the-solution}
 
@@ -449,12 +402,8 @@ for each zip code)
 \subsubsection{Categorical Encoding
 Analysis}\label{categorical-encoding-analysis}
 
-\subsubsection{Python}\label{python-3}
-
 \subsubsection{Tree Visualization: Categorical
 zipCode}\label{tree-visualization-categorical-zipcode}
-
-\subsubsection{Python}\label{python-4}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -476,8 +425,6 @@ zipCode}\label{tree-visualization-categorical-zipcode}
 
 \subsubsection{Feature Importance: Categorical
 zipCode}\label{feature-importance-categorical-zipcode}
-
-\subsubsection{Python}\label{python-5}
 
 \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/importance-plot-cat-python-output-1.pdf}}
 
@@ -616,177 +563,72 @@ categorical variables, unlike R.
   one-hot encoding) categorical handling. Please provide a link to the
   source and a quote from the source. There is not right answer here,
   but please provide a thoughtful answer, I am curious to see what you
-  find.
+  find. answer: \textbf{🌳 Decision Trees, Feature Importance, and the
+  Encoding Story} Decision trees are often celebrated for their
+  interpretability. They provide a clear ranking of which variables
+  drive predictions, making them attractive for business users who want
+  transparency. But when I explored how feature importance is
+  calculated, I discovered a subtle trap: the way categorical variables
+  are encoded can dramatically distort the story the tree tells.
 \end{enumerate}
 
-\subsection{Grading Rubric 🎓}\label{grading-rubric}
+\textbf{📊 Numerical vs.~Categorical Encoding} Numerical features: Trees
+split on thresholds (e.g., ``Age \textless{} 35''), and importance
+reflects how often and how effectively those thresholds separate the
+data. The rankings are usually intuitive and stable.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{📊 What You're Really Being Graded On}, leftrule=.75mm, breakable, titlerule=0mm, bottomrule=.15mm, toptitle=1mm, opacityback=0, rightrule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, arc=.35mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, bottomtitle=1mm, toprule=.15mm]
+Categorical features with one-hot encoding: Instead of one coherent
+variable, the tree sees dozens of binary flags. This can fragment
+importance across many dummy variables or inflate it for
+high-cardinality categories (like ZIP codes). The result: importance
+rankings that look impressive but may mislead decision-makers.
 
-\textbf{This is an investigative report, not a coding exercise.} You're
-analyzing decision tree models and reporting your findings like a
-professional analyst would. Think of this as a brief you'd write for a
-client or manager about why proper variable encoding matters in machine
-learning.
+This isn't just theory---the official documentation for scikit-learn
+makes the limitation explicit:
 
-\textbf{What makes a great report:}
+``DecisionTreeRegressor does not support categorical variables. You need
+to encode them numerically, e.g.~with one-hot encoding.'' Scikit-learn
+DecisionTreeRegressor Documentation
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Clear narrative:} Tell the story of what you discovered about
-  decision tree feature importance
-\item
-  \textbf{Insightful analysis:} Focus on the most interesting
-  differences between numerical and categorical encoding
-\item
-  \textbf{Professional presentation:} Clean, readable, and engaging
-\item
-  \textbf{Concise conclusions:} No AI babble or unnecessary technical
-  jargon
-\item
-  \textbf{Human insights:} Your interpretation of what the feature
-  importance rankings actually mean (or don't mean)
-\item
-  \textbf{Documentation-based analysis:} For question 2, ground your
-  analysis in actual library documentation
-\end{itemize}
+\textbf{🚀 State of the Art in Python} Modern libraries have moved
+beyond one-hot encoding:
 
-\textbf{What we're looking for:} A compelling 1-2 minute read that
-demonstrates both the power of decision trees for interpretability and
-the critical importance of proper variable encoding. And a note on the
-current state of the art in decision tree implementation for categorical
-variables in Python.
+\textbf{LightGBM:} Uses integer encoding and statistical tests to find
+optimal splits across categories, avoiding the dimensionality explosion
+of one-hot.
 
-\end{tcolorbox}
+\textbf{CatBoost:} Designed specifically for categorical features,
+applying target statistics with regularization to produce more
+meaningful importance scores.
 
-\subsubsection{Questions to Answer for 75\% Grade on
-Challenge}\label{questions-to-answer-for-75-grade-on-challenge}
+Both approaches keep categorical variables intact, so importance
+reflects the true predictive power of the feature rather than artifacts
+of encoding.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Numerical vs Categorical Analysis:} Provide a clear,
-  well-reasoned answer to question 1 about how zip codes should be
-  modelled. Your answer should demonstrate understanding of why
-  categorical variables need special treatment in decision trees.
-\end{enumerate}
+\textbf{💡 Human Insights} Feature importance is not absolute
+truth---it's a lens.
 
-\subsubsection{Questions to Answer for 85\% Grade on
-Challenge}\label{questions-to-answer-for-85-grade-on-challenge}
+With one-hot encoding, the lens is distorted: importance rankings may
+exaggerate or fragment categorical variables.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  \textbf{R vs Python Implementation Analysis:} Provide a thorough
-  analysis of question 2, including investigation of the official
-  documentation for both \texttt{rpart} (R) and
-  \texttt{sklearn.tree.DecisionTreeRegressor} (Python). Your analysis
-  should explain the technical differences and provide a reasoned
-  opinion about which implementation handles categorical variables
-  better. You do NOT have to run R-code.
-\end{enumerate}
+With native categorical handling, the lens sharpens: importance scores
+align more closely with business intuition, showing which variables
+genuinely matter.
 
-\subsubsection{Questions to Answer for 95\% - 100\% Grade on
-Challenge}\label{questions-to-answer-for-95---100-grade-on-challenge}
+\textbf{✅ Concise Conclusions} Decision trees remain powerful for
+interpretability, but encoding choices can make or break the insights.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  \textbf{Professional Presentation:} Your discussion answers should be
-  written in a professional, engaging style that would be appropriate
-  for a business audience learning about one-hot encoding and decision
-  trees. Avoid technical jargon and focus on practical implications.
-  Include a specific quote from the official documentation of
-  \texttt{sklearn.tree.DecisionTreeRegressor} that supports your
-  analysis.
-\end{enumerate}
+Scikit-learn requires one-hot encoding, which can mislead feature
+importance analysis.
 
-\subsection{Submission Checklist ✅}\label{submission-checklist}
+Libraries like LightGBM and CatBoost represent the current state of the
+art, offering native categorical handling and more trustworthy
+importance rankings.
 
-\textbf{Minimum Requirements (Required for Any Points):}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Forked starter repository from
-  \url{https://github.com/flyaflya/decTreeChallenge.git}
-\item[$\square$]
-  Cloned repository locally using Cursor (or VS Code)
-\item[$\square$]
-  Added thoughtful narrative answers to both discussion questions
-\item[$\square$]
-  Document rendered to HTML successfully
-\item[$\square$]
-  HTML files uploaded to your forked repository
-\item[$\square$]
-  GitHub Pages enabled and working
-\item[$\square$]
-  Site accessible at
-  \texttt{https://{[}your-username{]}.github.io/decTreeChallenge/}
-\end{itemize}
-
-\textbf{75\% Grade Requirements:}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Clear, well-reasoned answer to question 1 about numerical vs
-  categorical encoding
-\end{itemize}
-
-\textbf{85\% Grade Requirements:}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Thorough analysis of question 2 with investigation of official
-  documentation
-\end{itemize}
-
-\textbf{95\% Grade Requirements:}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Professional presentation style appropriate for business audience.
-\item[$\square$]
-  Specific quote from official documentation of
-  \texttt{sklearn.tree.DecisionTreeRegressor} supporting your analysis
-\end{itemize}
-
-\textbf{100\% Grade Requirements:}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Note on the current state of the art in decision tree implementation
-  for categorical variables in Python.
-\end{itemize}
-
-\textbf{Report Quality (Critical for Higher Grades):}
-
-\begin{itemize}
-\tightlist
-\item[$\square$]
-  Clear, engaging narrative that tells a story
-\item[$\square$]
-  Focus on the most interesting findings about decision tree feature
-  importance
-\item[$\square$]
-  Professional writing style (no AI-generated fluff)
-\item[$\square$]
-  Concise analysis that gets to the point
-\item[$\square$]
-  Practical insights that would help a real data scientist
-\item[$\square$]
-  Documentation-based analysis for technical questions
-\end{itemize}
+\textbf{👉 The practical takeaway: if your business relies on
+categorical-heavy data (customer segments, product categories, regions),
+choose a library that respects categories natively. It's the difference
+between a clear story and a distorted one.}
 
 
 
